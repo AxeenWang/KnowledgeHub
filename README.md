@@ -25,6 +25,10 @@
 
   快速前往：[安裝](<主題知識/操作手冊/Claude 安裝與更新.md#install>) · [更新](<主題知識/操作手冊/Claude 安裝與更新.md#update>) · [移除／反安裝](<主題知識/操作手冊/Claude 安裝與更新.md#uninstall>)。
 
+- [Git CLI 安裝、更新與移除](<主題知識/操作手冊/Git CLI 安裝、更新與移除.md>)：1.0 版，Windows、macOS 的安裝、更新、移除與來源辨識。
+
+  快速前往：[安裝](<主題知識/操作手冊/Git CLI 安裝、更新與移除.md#install>) · [更新](<主題知識/操作手冊/Git CLI 安裝、更新與移除.md#update>) · [移除／反安裝](<主題知識/操作手冊/Git CLI 安裝、更新與移除.md#uninstall>)。
+
 ## 本機輔助目錄
 
 以下目錄按需使用，均由 `.gitignore` 排除，包含其所有內容。
