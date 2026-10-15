@@ -35,6 +35,7 @@
 ## 專案規則
 
 - [AGENTS.md](AGENTS.md)：助理進入專案時的規則入口。
+- [CLAUDE.md](CLAUDE.md)：Claude Code / Cowork 的專屬補充，會匯入 `AGENTS.md`。
 - [governance_eng.md](governance_eng.md)：供助理遵循的英文主版規則。
 - [governance_cht.md](governance_cht.md)：供使用者閱讀的同步繁體中文版。
 
