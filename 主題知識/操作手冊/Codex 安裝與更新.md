@@ -79,13 +79,13 @@ codex login
 codex login status
 ```
 
-第一行會引導至瀏覽器登入 ChatGPT 帳號，完成後再執行第二行確認。之後切到要工作的資料夾，輸入 `codex` 啟動，在 Codex 輸入 `/exit` 退出。
+第一行會引導至瀏覽器登入 ChatGPT 帳號，完成後再執行第二行確認。之後切到要工作的資料夾，macOS 可輸入 `cd` 加一個空白，將 Finder 的工作資料夾拖入終端機後按 Enter。再輸入 `codex` 啟動，在 Codex 輸入 `/exit` 退出。
 
 <a id="update"></a>
 
 ## 2. 更新
 
-先存檔，退出正在使用的桌面程式或 CLI。
+先存檔並停止目前任務，CLI 使用者先退出。
 
 <a id="desktop-update"></a>
 
@@ -146,7 +146,7 @@ codex login status
 
 1. 用檔案總管開啟 `%LOCALAPPDATA%\Programs\OpenAI\Codex`，刪除裡面的 `bin` 項目本身，不進入後逐一刪檔。
 2. 開啟 `%USERPROFILE%\.codex\packages`，只刪除 `standalone` 資料夾，保留其他資料夾。
-3. 在「環境變數 > 使用者變數 > Path」移除原本的 `%LOCALAPPDATA%\Programs\OpenAI\Codex\bin` 項目，保留其他項目。
+3. 從開始功能表搜尋「編輯系統環境變數」，開啟後按「環境變數」，在上方「使用者變數 > Path」移除原本的 `%LOCALAPPDATA%\Programs\OpenAI\Codex\bin` 項目，保留其他項目。
 
 **macOS**
 
