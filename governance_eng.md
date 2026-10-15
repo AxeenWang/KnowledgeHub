@@ -1,6 +1,6 @@
 # KnowledgeHub Governance
 
-Version: 0.6 (draft)
+Version: 0.8
 Updated: 2026-10-15
 
 ## 1. Purpose and scope
@@ -39,9 +39,10 @@ Updated: 2026-10-15
 - State uncertainty, conflicting evidence, and verification limits. Mark unavailable or unchecked sources accordingly. A stored reference is not proof that its content remains current.
 - Summarize external material in your own words and use only necessary quotations with attribution. Retain source files when extraction or conversion may lose information.
 
-## 5. Notes and manuals
+## 5. Notes, documents, and manuals
 
-- Prefer editable Markdown for new text notes and manuals unless the task or source requires another format. Preserve original reference formats when useful.
+- When creating notes, documents, or manuals, edit in Markdown and produce `.md` files unless the user explicitly requests another document format.
+- Preserve original reference formats when useful.
 - Use a clear title and logical headings. Include scope, key points, examples, procedures, sources, or open questions only where relevant. Do not force every note into a fixed template.
 - Make procedures actionable by stating prerequisites, steps, and expected results where needed. Label untested steps and assumptions rather than implying validation.
 - Merge overlapping explanations only after checking their differences. Preserve unique information, differing viewpoints, and meaningful historical context. Do not delete originals merely because a summary exists.
