@@ -17,11 +17,9 @@
 
 ### 操作手冊
 
-- [Codex 安裝與更新](<主題知識/操作手冊/Codex 安裝與更新.md>)：Windows、macOS 桌面版及 CLI 的安裝與更新。
+- [Codex 安裝、更新與移除](<主題知識/操作手冊/Codex 安裝與更新.md>)：1.6 精簡版，Windows、macOS 桌面版及 CLI 的必要步驟。
 
-  快速前往：[桌面版](<主題知識/操作手冊/Codex 安裝與更新.md#desktop>) · [CLI 首次安裝](<主題知識/操作手冊/Codex 安裝與更新.md#cli-install>) · [CLI 更新](<主題知識/操作手冊/Codex 安裝與更新.md#cli-update>) · [疑難排解](<主題知識/操作手冊/Codex 安裝與更新.md#troubleshooting>)。
-
-  新手卡點：[唯讀權限](<主題知識/操作手冊/Codex 安裝與更新.md#cli-permissions>) · [桌面版更新入口](<主題知識/操作手冊/Codex 安裝與更新.md#desktop-update-fallback>) · [命令來源判讀](<主題知識/操作手冊/Codex 安裝與更新.md#troubleshoot-sources>) · [Windows PATH](<主題知識/操作手冊/Codex 安裝與更新.md#path-windows>) · [macOS PATH](<主題知識/操作手冊/Codex 安裝與更新.md#path-macos>)。
+  快速前往：[安裝](<主題知識/操作手冊/Codex 安裝與更新.md#install>) · [更新](<主題知識/操作手冊/Codex 安裝與更新.md#update>) · [移除／反安裝](<主題知識/操作手冊/Codex 安裝與更新.md#uninstall>)。需要時再查[詳細教學與排錯](<主題知識/操作手冊/Codex 安裝與更新（1.5 詳細版）.md>)。
 
 ## 本機輔助目錄
 
