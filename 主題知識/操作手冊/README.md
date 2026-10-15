@@ -6,7 +6,7 @@
 
 | 手冊 | 內容 | 更新日期 |
 | --- | --- | --- |
-| [Codex 安裝與更新](<Codex 安裝與更新.md>) | Windows、macOS 桌面版及 CLI 的新手步驟、更新與常見問題，含 Windows PowerShell 5.1 與 PowerShell 7.0 以上寫法。 | 2026-10-15 |
+| [Codex 安裝與更新](<Codex 安裝與更新.md>) | Windows、macOS 桌面版及 CLI 的新手步驟、更新與常見問題，含 Windows PowerShell 5.1 與 PowerShell 7.0 以上寫法，以及唯讀權限、PATH 修復與命令來源判讀。 | 2026-10-15 |
 
 ## Codex 手冊章節
 
@@ -16,6 +16,13 @@
 4. [CLI 更新](<Codex 安裝與更新.md#cli-update>)
 5. [疑難排解](<Codex 安裝與更新.md#troubleshooting>)
 6. [來源與驗證範圍](<Codex 安裝與更新.md#references>)
+
+## 新手常見卡點
+
+- [第一次練習的權限選擇](<Codex 安裝與更新.md#cli-permissions>)
+- [找不到桌面版檢查更新入口](<Codex 安裝與更新.md#desktop-update-fallback>)
+- [看懂多個 CLI 命令來源](<Codex 安裝與更新.md#troubleshoot-sources>)
+- [Windows PATH 修復](<Codex 安裝與更新.md#path-windows>) · [macOS PATH 修復](<Codex 安裝與更新.md#path-macos>)
 
 新增手冊時以具體內容命名，並在本頁補上連結。
 

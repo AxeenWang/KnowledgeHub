@@ -1,6 +1,6 @@
 # Codex 安裝與更新
 
-文件版本：1.3 · 排版更新日期：2026-10-15 · 資料查證日期：2026-10-15
+文件版本：1.4 · 內容更新日期：2026-10-15 · 資料查證日期：2026-10-15
 
 適用範圍：Windows 與 macOS 桌面版，以及 Codex CLI 的安裝、登入與更新。
 
@@ -28,6 +28,13 @@
 4. [CLI 更新](#cli-update)
 5. [疑難排解](#troubleshooting)
 6. [來源與驗證範圍](#references)
+
+**容易卡住的步驟**
+
+- [第一次練習要選什麼權限](#cli-permissions)
+- [找不到桌面版檢查更新入口](#desktop-update-fallback)
+- [看懂多個 CLI 命令來源](#troubleshoot-sources)
+- [Windows 修復 PATH](#path-windows) · [macOS 修復 PATH](#path-macos)
 
 <a id="before-start"></a>
 
@@ -69,7 +76,7 @@
 **操作步驟**
 
 1. 開啟 [ChatGPT desktop app for Windows](https://learn.chatgpt.com/docs/windows/windows-app)。
-2. 點選頁面內的 Windows 桌面程式下載連結。
+2. 點選頁面內的 Windows 桌面程式下載連結。新版程式名稱是 **ChatGPT**，發行者為 OpenAI，登入後再切換至 Codex。下載頁顯示 ChatGPT 是正常情況。
 3. 依 Windows 安裝提示完成安裝。如出現管理員核准提示，交由有權限的人員確認。
 4. 從開始功能表開啟安裝完成的程式。
 
@@ -100,7 +107,7 @@ winget install --id 9PLM9XGG6VKS -s msstore
 **操作步驟**
 
 1. 在 Mac 開啟 [ChatGPT desktop app 官方頁面](https://learn.chatgpt.com/docs/app)。
-2. 確認下載項目適用於自己的 Mac。查證時頁面標示 **macOS（Apple Silicon）**，可先從 Apple 選單的「關於這台 Mac」確認晶片。Intel Mac 請先確認當時官方是否另有相容下載。
+2. 確認下載項目適用於自己的 Mac。查證時下載入口標示 **macOS（Apple Silicon）**，可先從 Apple 選單的「關於這台 Mac」確認晶片。Intel Mac 請先確認當時官方是否另有相容下載。若只有 Apple Silicon 下載，就停在這一步，不要套用該安裝檔。可先使用[官方網頁入口](https://learn.chatgpt.com/docs/quickstart?setup=web)，或查看 [CLI 安裝路線](#cli-install-macos)當時的相容需求，兩者的操作範圍與桌面版不同。
 3. 點選 macOS 下載連結，開啟下載的安裝檔，依安裝視窗指示完成。
 4. 若下載的是磁碟映像檔，且視窗顯示拖曳安裝方式，將程式拖至 **Applications／應用程式**，再從應用程式資料夾開啟。
 5. 依 macOS 的正常提示確認開啟，接著進行[桌面版登入與確認可用](#desktop-login)登入。
@@ -123,14 +130,16 @@ winget install --id 9PLM9XGG6VKS -s msstore
 2. 在開啟的瀏覽器完成登入，再回到桌面程式，確認已進入主畫面。
 3. 若帳號有多個工作區，確認目前選到預期的工作區。
 4. 在新版介面的 ChatGPT 下拉選單選擇 **Codex**。
-5. 使用新增專案或開啟資料夾的選項，選取準備好的練習資料夾，核對畫面顯示的位置。
-6. 建立新對話，送出以下練習提示。
+5. 使用新增專案或開啟資料夾的選項，選取準備好的練習資料夾，核對畫面顯示的位置。若找不到開啟資料夾入口，先到 **Projects／專案**檢視建立本機專案，再開啟該專案的選單，選 **Edit project／編輯專案 > Add folder／新增資料夾**，加入練習資料夾。已有本機專案也可從同一入口編輯。第一次練習只附加這一個資料夾，避免把整個使用者資料夾加入。
+6. 在該專案選 **New chat／新對話**，確認對話使用練習資料夾，再送出以下練習提示。只在 Recents 旁開新對話，可能尚未有資料夾存取內容。
 
     ```text
     請列出目前資料夾的第一層項目，簡單說明這個資料夾的內容。只讀取，不修改檔案。
     ```
 
 **成功判斷：** Codex 能回應提示，並在需要存取本機資料時依目前權限處理。完成後確認練習資料夾沒有被修改。這是本手冊建議的操作檢查，不代表官方保證每個帳號均具備相同功能。
+
+新建的空資料夾回覆「沒有項目」也是正常結果，不必先放入檔案。若回覆無法存取資料夾，先核對專案附加的資料夾與對話位置，再重試。上述 **Edit project > Add folder** 入口依[官方專案說明](https://learn.chatgpt.com/docs/projects#use-local-projects-for-folders-and-codebases)，實際介面名稱可能隨版本不同。
 
 登入、選擇資料夾及切換 Codex 的介面流程依[官方快速入門](https://learn.chatgpt.com/docs/quickstart)及[官方驗證文件](https://learn.chatgpt.com/docs/auth)整理。
 
@@ -153,7 +162,7 @@ winget install --id 9PLM9XGG6VKS -s msstore
 
 Windows 使用者依程式的結束選項操作。macOS 使用者可透過程式選單的「結束」或 `Command + Q` 完全結束，再從應用程式資料夾重開。只關閉視窗不一定會結束程式。
 
-若沒有檢查更新入口，先依原安裝管道或組織的軟體派送方式確認更新，不要改裝另一個來源來推測問題已解決。
+若沒有檢查更新入口，依[找不到桌面版更新入口](#desktop-update-fallback)選擇原安裝管道的處理方式，不要改裝另一個來源來推測問題已解決。
 
 **成功判斷：** 完成[桌面版更新後檢查](#desktop-verify)。
 
@@ -179,6 +188,21 @@ Windows 使用者依程式的結束選項操作。macOS 使用者可透過程式
 - 若要留下更新紀錄，記下程式顯示的版本、日期及更新結果。
 
 「已安裝某版本」與「目前管道沒有可用更新」是兩種不同結果。記錄版本號本身不能證明已是最新版本，也不能證明所有新功能都已開放。
+
+<a id="desktop-update-fallback"></a>
+
+### 2.7 找不到桌面版檢查更新入口
+
+先到 **Settings > General／設定 > 一般**，檢查是否有 [In-app updates：Managed](#desktop-managed-updates)。若顯示由組織管理，直接走管理員核准的更新流程。沒有顯示 Managed，也不能單憑選單缺少就認定是政策問題。
+
+| 原安裝方式 | 接著怎麼做 |
+| --- | --- |
+| Windows，從 Microsoft Store 安裝，或用本手冊的 `winget ... -s msstore` 安裝 | 從開始功能表開啟 **Microsoft Store**，到 **Downloads／下載**或舊版的 **Library／程式庫**更新頁，選 **Check for Updates／檢查更新**或 **Get updates／取得更新**。若列出 OpenAI 的 ChatGPT，選擇更新，等待完成後重開程式。按鈕名稱以 Store 版本為準。 |
+| Windows，從官方入口自行安裝，但 Store 沒有列出可更新項目 | 官方使用者安裝程式提供自動更新，Store 元件也可能參與更新。先完全結束並重開程式，確認可連線，再重查程式內更新。仍沒有入口時，保留版本與錯誤資料，依[官方 Windows 部署頁的 Self-install 說明](https://learn.chatgpt.com/docs/enterprise/windows-deployment#let-users-install-and-update-the-app)確認原安裝方式，向支援人員查明，不需要先解除安裝。 |
+| macOS，從官方磁碟映像檔安裝 | 先完全結束並重開。若仍無更新入口，可從[官方更新管理頁](https://learn.chatgpt.com/docs/enterprise/manage-app-updates#deploy-approved-app-versions)取得目前的 macOS 安裝程式，核對相容性後結束程式，依安裝視窗將新版放入原本的 Applications／應用程式位置。只有確認是同一個 OpenAI 程式時才同意取代，完成後重開並檢查。這是以官方安裝套件更新的備援做法，尚未在 Mac 實測。 |
+| 公司透過 Intune、Company Portal、MDM 或其他工具派送 | 在組織指定的軟體入口查看核准版本與安裝狀態，若沒有更新可選，把目前版本與錯誤交給管理員，不自行改走其他管道。 |
+
+Microsoft Store 的檢查更新方式參見 [Microsoft 官方說明](https://support.microsoft.com/en-us/accounts-billing/get-updates-for-apps-and-games-in-microsoft-store)。Store 回報沒有更新，只表示該管道當下沒有提供更新。所有分流完成後，回到[桌面版更新後檢查](#desktop-verify)。
 
 <a id="cli-install"></a>
 
@@ -236,7 +260,7 @@ CLI 是 Command Line Interface，指在終端機輸入指令操作的版本。**
     pwsh -NoProfile -ExecutionPolicy Bypass -Command "irm https://chatgpt.com/codex/install.ps1 | iex"
     ```
 
-3. 安裝完成後關閉此 PowerShell，重新開啟一個新視窗，讓命令搜尋路徑的變更生效。
+3. 安裝完成後先保留安裝結果與路徑提示，再從開始功能表另開一個新的 PowerShell 視窗，讓命令搜尋路徑的變更生效。先不要關掉唯一一份安裝訊息，版本檢查成功後再關閉舊視窗。若使用 Windows Terminal，必要時完全結束 Terminal 再重開，避免新分頁沿用舊環境。
 4. 執行版本檢查。
 
     ```powershell
@@ -274,7 +298,7 @@ CLI 是 Command Line Interface，指在終端機輸入指令操作的版本。**
 
 這是 [CLI 官網 macOS/Linux 分頁](https://learn.chatgpt.com/docs/codex/cli)列出的指令，會下載並執行 OpenAI 的安裝腳本。若安裝程式提示命令搜尋路徑的後續設定，依畫面完成。
 
-3. 關閉終端機視窗，開啟新的終端機視窗，再檢查版本。
+3. 先保留安裝結果與路徑提示，再開啟新的終端機視窗檢查版本。確認成功後再關閉舊視窗。若找不到命令，依 [macOS PATH 修復](#path-macos)處理，不必重新安裝。
 
     ```bash
     codex --version
@@ -409,7 +433,7 @@ CLI 是 Command Line Interface，指在終端機輸入指令操作的版本。**
     codex
     ```
 
-3. 若出現資料夾信任或權限提示，確認畫面上的位置就是練習資料夾，再選擇適合的權限。
+3. 若出現資料夾信任提示，先確認位置確實是自己建立的 `CodexPractice`，才同意信任。位置不符就取消並回到終端機，重新切換資料夾。進入後先依[首次練習的權限選擇](#cli-permissions)設為 **Read Only／唯讀**並確認，再送出下一步的提示。
 4. 在 **Codex 的輸入區**輸入下列文字並送出。
 
     ```text
@@ -427,6 +451,27 @@ CLI 是 Command Line Interface，指在終端機輸入指令操作的版本。**
 在 Codex 輸入區輸入 `/exit` 並送出，回到 PowerShell 或 macOS 的命令提示畫面。之後重新使用時，切到要處理的資料夾再執行 `codex` 即可。
 
 **分清楚輸入位置**：`codex login`、安裝與更新指令放在 PowerShell／終端機，`/exit` 與練習提示放在 Codex 輸入區。不要把安裝指令當成對話送給 Codex。退出方式依[官方 CLI 指令參考](https://learn.chatgpt.com/docs/cli/reference#interactive-shortcuts)。
+
+<a id="cli-permissions"></a>
+
+### 3.9 第一次練習要選什麼權限
+
+本次只要列出資料夾內容，選 **Read Only／唯讀**即可。資料夾「信任」是確認來源可信，並不等於這次任務需要寫入權限，也不代表以後每個要求都應同意。
+
+1. 啟動 CLI 後，在 **Codex 輸入區**輸入 `/permissions`，按 Enter。
+2. 選 **Read Only**。若介面使用具名權限設定檔，找內建的 **`:read-only`**。不要為這次練習選完整存取權限。
+3. 等畫面確認權限已變更，再輸入 `/status`，查看目前權限、核准方式及可寫入位置，確認沒有意外開放練習資料夾寫入。
+4. 回到[第一次使用練習第 4 步](#cli-practice)，送出只讀取提示。若要求寫入、刪除、安裝或額外網路操作，先拒絕，請它只列出目前資料夾內容。
+
+也可在尚未啟動 Codex 的 PowerShell／終端機中，用以下方式啟動本次唯讀練習，再以 `/status` 核對。一般啟動指令仍是 `codex`，以下是增加唯讀限制的寫法，兩種方式擇一。
+
+```text
+codex --sandbox read-only
+```
+
+`--sandbox` 是官方仍列出的沙箱參數。新版具名權限設定檔與舊式沙箱設定不混用，受管理的設備也可能限制選項。如果參數被政策拒絕，保留錯誤，改由 `/permissions` 選組織允許的唯讀設定，不修改組織規則。若沒有任何唯讀選項，先停止練習並向管理員確認。
+
+這些限制主要針對本機命令執行，不代表可一併約束所有外部插件或連接器。首次練習不需要另外啟用它們。依[官方互動指令說明](https://learn.chatgpt.com/docs/developer-commands?surface=cli#update-permissions-with-permissions)、[命令列參數](https://learn.chatgpt.com/docs/cli/reference)及[權限設定檔文件](https://learn.chatgpt.com/docs/permissions)整理。
 
 <a id="cli-update"></a>
 
@@ -565,6 +610,8 @@ codex --version
 | npm 執行原則、更新權限或網路錯誤 | [npm 與更新排錯](#troubleshoot-update) |
 | CLI 瀏覽器登入無法完成 | [登入排錯](#troubleshoot-login) |
 | 桌面版安裝、帳號、組織政策或產品名稱問題 | [桌面版與其他問題](#troubleshoot-desktop) |
+| 查到多個命令，不知道該更新哪一份 | [看懂命令來源](#troubleshoot-sources) |
+| 完整路徑可執行，輸入 codex 卻找不到 | [Windows PATH 修復](#path-windows)或 [macOS PATH 修復](#path-macos) |
 
 <a id="troubleshoot-path"></a>
 
@@ -585,7 +632,7 @@ macOS 終端機：
 type -a codex
 ```
 
-**成功判斷：** 顯示命令來源。如果出現多個安裝目錄，可能同時裝了不同管道。先核對來源及原安裝方式，再更新相符的那份 CLI，不要直接刪除不熟悉的檔案。
+**成功判斷：** 顯示命令來源。如果出現多個安裝目錄，可能同時裝了不同管道。先依[來源判讀範例](#troubleshoot-sources)核對來源及原安裝方式，再更新相符的那份 CLI，不要直接刪除不熟悉的檔案。完全沒有輸出時，繼續第 3 步。
 
 3. 若使用官方獨立安裝程式，可用完整路徑檢查。以下為未自訂安裝位置時的預設值，依[官方環境變數文件](https://learn.chatgpt.com/docs/config-file/environment-variables)。
 
@@ -601,7 +648,7 @@ macOS 終端機：
 "$HOME/.local/bin/codex" --version
 ```
 
-如果完整路徑可以顯示版本，單獨輸入 `codex` 卻找不到，表示終端機的 **PATH 命令搜尋路徑**尚未包含該位置。依安裝程式顯示的路徑設定提示完成後重新開啟終端機。若完整路徑也不存在，或安裝時自訂過目錄，回頭確認安裝結果與實際位置。npm 與 Homebrew 安裝者不要套用上述預設路徑。
+如果完整路徑可以顯示版本，單獨輸入 `codex` 卻找不到，通常是終端機的 **PATH 命令搜尋路徑**尚未包含該位置，或仍沿用舊環境。依安裝程式顯示的路徑設定提示完成後重新開啟終端機。提示已關閉時，可照 [Windows 修復步驟](#path-windows)或 [macOS 修復步驟](#path-macos)操作。若完整路徑也不存在，或安裝時自訂過目錄，回頭確認安裝結果與實際位置。npm 與 Homebrew 安裝者不要套用上述預設路徑。
 
 <a id="troubleshoot-update"></a>
 
@@ -651,6 +698,136 @@ codex login --device-auth
 
 遇到仍無法排除的問題，記錄作業系統、安裝方式、版本、操作步驟及錯誤訊息。對外提供資料前，先移除帳號識別資料、金鑰及敏感路徑。
 
+<a id="troubleshoot-sources"></a>
+
+### 5.5 看懂命令來源，選對要更新的 CLI
+
+先執行[命令來源檢查](#troubleshoot-path)。以下輸出是示意，`Learner` 代表使用者名稱，不是要輸入的指令，也不保證每台電腦的順序相同。
+
+**Windows 示意輸出**
+
+```text
+CommandType    Source
+-----------    ------
+Application    C:\Users\Learner\AppData\Local\Programs\OpenAI\Codex\bin\codex.exe
+ExternalScript C:\Users\Learner\AppData\Roaming\npm\codex.ps1
+Application    C:\Users\Learner\AppData\Roaming\npm\codex.cmd
+```
+
+此例第一筆是獨立安裝版，後兩筆是同一個 npm 目錄中的啟動檔，**不能只按列數判斷裝了三份**。若要單獨確認 PowerShell 目前優先解析哪一個命令，執行：
+
+```powershell
+Get-Command codex -ErrorAction SilentlyContinue | Select-Object CommandType, Source, Definition
+```
+
+若顯示 `Alias` 或 `Function`，先看 `Definition`，它可能蓋過 PATH 中的執行檔。若 npm 的 `.ps1` 因執行原則被阻擋，依 [npm 排錯](#troubleshoot-update)處理，不要把來源查得到當成已能正常執行。
+
+**macOS 示意輸出**
+
+```text
+codex is /Users/Learner/.local/bin/codex
+codex is /opt/homebrew/bin/codex
+```
+
+此例優先命中使用者的 `.local/bin`。第二筆位於 Homebrew 常見路徑，但也可能是其他工具建立的連結，仍須查安裝紀錄。`type -a` 若顯示 alias 或 function，也先處理該自訂命令的影響。
+
+| 看到的位置或情況 | 如何確認與更新 |
+| --- | --- |
+| Windows `…\OpenAI\Codex\bin\codex.exe`，或 macOS `~/.local/bin/codex` | 符合官方獨立安裝程式的預設位置。核對安裝紀錄後，前往 [Windows 更新](#cli-update-windows)或 [macOS 更新](#cli-update-macos)。自訂安裝目錄可能不同。 |
+| Windows `…\npm\codex.ps1`、`codex.cmd`，或 macOS 位於 npm 全域 prefix 下的 `bin/codex` | 執行下方 npm 查詢。確認有 `@openai/codex` 且 prefix 對得上來源，才使用 [npm 更新](#cli-update-npm)。 |
+| macOS `/opt/homebrew/bin/codex` 或 `/usr/local/bin/codex` | 是 Homebrew 常見位置，也可能與 npm 重疊。執行下方 Homebrew 查詢，並用 `ls -l` 核對實際命令連結指向，再選 [Homebrew 更新](#cli-update-homebrew)。 |
+| 位於桌面程式套件、資源目錄，或其他陌生位置 | 路徑本身不足以確認來源。先保留輸出，核對是否為桌面程式附帶工具或自訂安裝，不直接刪除、取代或對它套用其他管道的更新。 |
+
+**只有已使用 npm 時才查詢**，這些指令不會安裝或更新套件：
+
+```text
+npm config get prefix
+npm list -g --depth=0 @openai/codex
+```
+
+Windows 若遇到 `npm.ps1` 執行原則問題，將上述 `npm` 改為 `npm.cmd`。npm 的全域啟動檔在 Windows 位於 prefix 本身，在 macOS 位於 prefix 的 `bin`。若顯示未安裝或空清單，只能代表這一份 npm 環境沒有該套件。
+
+**只有已使用 Homebrew 時才查詢**：
+
+```bash
+brew --prefix
+brew list --cask --versions codex
+ls -l /opt/homebrew/bin/codex
+```
+
+最後一行只適用於上面的示意路徑，請改成 `type -a codex` 實際列出、要核對的完整路徑。若路徑有空白，要加雙引號。查不到 cask 時，不要把「位於 Homebrew 的 bin」直接當成它安裝的證據。
+
+**怎樣才算排除問題：** 確認優先命令屬於哪個管道，更新該管道後重新開啟終端機，再查來源與版本。若更新的是另一份，就算安裝程式成功，直接輸入 `codex` 仍可能啟動舊版。可先用[完整路徑](#troubleshoot-path)確認想要的那份，不需要先解除安裝其他版本。
+
+來源判讀依 [npm 目錄文件](https://docs.npmjs.com/cli/v11/configuring-npm/folders/)、[Homebrew 指令文件](https://docs.brew.sh/Manpage)及官方 CLI 安裝目錄整理，範例路徑不取代實際查詢結果。
+
+<a id="path-windows"></a>
+
+### 5.6 Windows：修復獨立安裝版的 PATH
+
+**適用環境：** Windows PowerShell 5.1 與 PowerShell 7.0 以上版本。僅在[完整路徑版本檢查](#troubleshoot-path)已成功，但新開的 PowerShell 仍找不到 `codex` 時使用。若已找到另一份 CLI，先看[來源判讀](#troubleshoot-sources)，不要用這段掩蓋來源衝突。
+
+1. 在 PowerShell 顯示要加入的資料夾，複製輸出。若安裝時自訂位置，改用已確認存在的實際資料夾。
+
+    ```powershell
+    Join-Path $env:LOCALAPPDATA 'Programs\OpenAI\Codex\bin'
+    ```
+
+2. 從開始功能表搜尋「環境變數」，開啟「編輯系統環境變數」，在「進階」頁籤按 **環境變數**。也可從「控制台 > 系統 > 進階系統設定」進入。
+3. 在上方「你的使用者名稱的使用者變數」選 **Path > 編輯**。若尚無 Path，新增名稱為 `Path` 的使用者變數。
+4. 在清單按 **新增**，貼上第 1 步的完整資料夾路徑。若是建立新的 Path 變數，將路徑填入「變數值」。加入的是 `bin` 資料夾，**不含 `codex.exe`，不加引號**。若已存在相同項目，不重複新增。保留其他所有項目，不以這一條取代整份 Path。
+5. 逐一按「確定」存檔。完全結束 PowerShell 與 Windows Terminal，再從開始功能表開啟原本使用的 PowerShell 版本。
+6. 執行下列檢查。
+
+    ```powershell
+    Get-Command codex | Select-Object CommandType, Source
+    codex --version
+    ```
+
+**成功判斷：** 來源對應剛才確認的安裝位置，且顯示 CLI 版本。若仍查不到，先登出 Windows 再登入，以取得新的使用者環境。若顯示另一份 CLI，回到[來源判讀](#troubleshoot-sources)。
+
+此處修改的是使用者 Path，可同時供新開的 Windows PowerShell 5.1 與 PowerShell 7 使用，不需要分別改兩份 PowerShell 設定檔。依 [Microsoft 環境變數文件](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.5#create-persistent-environment-variables-in-windows)整理，未在本次實際變更電腦設定。
+
+<a id="path-macos"></a>
+
+### 5.7 macOS：修復獨立安裝版的 PATH
+
+**必要條件：** `"$HOME/.local/bin/codex" --version` 已成功，但新的終端機仍找不到 `codex`。以下只處理官方預設獨立安裝位置，npm、Homebrew 或自訂位置先回到[來源判讀](#troubleshoot-sources)。
+
+1. 在終端機查看目前執行的 shell，不只依提示符號猜測。
+
+    ```bash
+    ps -p $$ -o comm=
+    ```
+
+    顯示 `zsh` 或 `-zsh` 時使用下一步。若顯示 `bash`，使用後面的 Bash 分流。若是其他 shell，先停下來核對該 shell 的設定檔，不把 zsh 寫法直接套上去。
+
+2. **zsh 使用者：** 用下列指令開啟互動式啟動設定檔。通常是 `~/.zshrc`，若已有 `ZDOTDIR` 設定，則使用它指定的位置。
+
+    ```bash
+    nano "${ZDOTDIR:-$HOME}/.zshrc"
+    ```
+
+3. 保留原內容，在檔案末尾新增下列一行。若已有相同設定，不重複新增。這行把 CLI 目錄加入既有 PATH，不會清空其他項目。
+
+    ```bash
+    export PATH="$HOME/.local/bin:$PATH"
+    ```
+
+4. 在 nano 按 **Control + O**，按 Enter 確認原檔名存檔，再按 **Control + X** 離開。這裡是 Control 鍵，不是 Command 鍵。不要把 `export` 當成練習提示送給 Codex。
+5. 開啟新的終端機視窗，再檢查來源及版本。
+
+    ```bash
+    type -a codex
+    codex --version
+    ```
+
+**Bash 分流：** 在 Bash 執行 `shopt login_shell`。顯示 `on` 時，依序檢查 `~/.bash_profile`、`~/.bash_login`、`~/.profile`，編輯第一個已存在且可讀的檔案，三者都沒有才建立 `~/.bash_profile`。顯示 `off` 時，編輯 `~/.bashrc`。以 `nano` 加上該檔案完整路徑開啟，保留原文並加入上面的同一行 `export PATH=...`，再按第 4、5 步存檔與驗證。不要為了加 PATH 建立一份空的 `.bash_profile` 而使既有 `.profile` 不再載入。
+
+**成功判斷：** 新開視窗能查到 `.local/bin/codex` 並顯示版本。如果仍出現其他 CLI，先看[來源判讀](#troubleshoot-sources)。如果完全找不到，確認剛才編輯的是目前 shell 會載入的設定檔，且後續設定沒有覆寫 PATH。
+
+依 [Apple 終端機環境變數說明](https://support.apple.com/en-ph/guide/terminal/apd382cc5fa-4f58-4449-b20a-41c53c006f8f/mac)、[zsh 啟動檔說明](https://zsh.sourceforge.io/Doc/Release/Files.html)及 [Bash 啟動檔說明](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files)整理，尚未在 macOS 實機驗證。
+
 <a id="references"></a>
 
 ## 6. 來源與驗證範圍
@@ -669,7 +846,7 @@ codex login --device-auth
 
 ### 6.2 官方來源
 
-下列產品文件來源為 OpenAI，PowerShell 啟動方式另參考 Microsoft Learn，查證日期均為 **2026-10-15**。本文為自行整理的操作說明，非官方原文全文翻譯。
+下列產品文件來源為 OpenAI，PowerShell、PATH、Microsoft Store 與套件來源判讀另參考各工具的官方文件，查證日期均為 **2026-10-15**。本文為自行整理的操作說明，非官方原文全文翻譯。
 
 | 官方來源 | 用途 |
 | --- | --- |
@@ -685,6 +862,16 @@ codex login --device-auth
 | [Environment variables](https://learn.chatgpt.com/docs/config-file/environment-variables) | 官方獨立安裝程式的預設命令位置。 |
 | [Microsoft Learn：about_Pwsh](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pwsh) | PowerShell 7 的 `pwsh` 啟動方式，以及 `-NoProfile`、`-ExecutionPolicy`、`-Command` 參數。 |
 | [Microsoft Learn：Getting Started with PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/01-getting-started) | Windows PowerShell 5.1 與 PowerShell 7 並存及版本辨識。 |
+| [Projects and chats](https://learn.chatgpt.com/docs/projects) | 本機專案與 Edit project > Add folder 入口。 |
+| [Developer commands](https://learn.chatgpt.com/docs/developer-commands?surface=cli) | `/permissions`、Read Only 與 `/status` 操作。 |
+| [Permissions](https://learn.chatgpt.com/docs/permissions) | 唯讀權限設定檔、舊式沙箱與組織限制的關係。 |
+| [Microsoft：Get updates for apps and games](https://support.microsoft.com/en-us/accounts-billing/get-updates-for-apps-and-games-in-microsoft-store) | Microsoft Store 檢查更新。 |
+| [Microsoft Learn：about_Environment_Variables](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.5) | Windows 使用者 Path 的持久設定及新行程環境。 |
+| [Apple：Use environment variables in Terminal](https://support.apple.com/en-ph/guide/terminal/apd382cc5fa-4f58-4449-b20a-41c53c006f8f/mac) | 終端機環境變數及跨視窗持久設定。 |
+| [zsh：Startup/Shutdown Files](https://zsh.sourceforge.io/Doc/Release/Files.html) | `.zshrc` 與 `ZDOTDIR`。 |
+| [GNU Bash：Startup Files](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files) | Bash 登入與非登入 shell 的啟動檔。 |
+| [npm：Folders](https://docs.npmjs.com/cli/v11/configuring-npm/folders/) | 全域 prefix 與不同平台的命令位置。 |
+| [Homebrew：Manpage](https://docs.brew.sh/Manpage) | 查詢 prefix、已安裝 cask 及版本。 |
 
 <a id="validation"></a>
 
@@ -696,7 +883,11 @@ codex login --device-auth
 
 PowerShell 7 寫法已依 Microsoft 參數文件及語法檢查核對，未逐一實測所有 PowerShell 7.x 版本的安裝與更新結果。
 
-本次 1.3 版調整閱讀結構、版型與章節連結，沒有重新查證產品資訊或執行安裝、更新。
+1.3 版僅調整閱讀結構、版型與章節連結，當時沒有重新查證產品資訊或執行安裝、更新。
+
+本次 1.4 版依三位模擬初學者的審閱補強權限選擇、PATH 修復、命令來源判讀及桌面更新備援分流，另補齊產品名稱、專案資料夾入口、空資料夾結果與不相容 Mac 的下一步。這些審閱是模型閱讀模擬，不是真人可用性測試，也沒有實際完成三套環境的安裝。
+
+本次重新讀取相關 OpenAI、Microsoft、Apple、npm、Homebrew 與 shell 官方文件，並在現有 Windows CLI 以 `codex --help` 核對 `--sandbox read-only` 參數。新增步驟仍屬文件查證與語法檢查，沒有實際安裝、更新、登入、修改 PATH 或在 Mac 操作。未變動的產品資訊沿用前次查證，不代表本次全部重新實測。
 
 <a id="maintenance"></a>
 
