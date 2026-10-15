@@ -21,6 +21,10 @@
 
   快速前往：[安裝](<主題知識/操作手冊/Codex 安裝與更新.md#install>) · [更新](<主題知識/操作手冊/Codex 安裝與更新.md#update>) · [移除／反安裝](<主題知識/操作手冊/Codex 安裝與更新.md#uninstall>)。需要時再查[詳細教學與排錯](<主題知識/操作手冊/Codex 安裝與更新（1.5 詳細版）.md>)。
 
+- [Claude 安裝、更新與移除](<主題知識/操作手冊/Claude 安裝與更新.md>)：1.0 版，Windows、macOS 桌面版及 Claude Code CLI 的必要步驟。
+
+  快速前往：[安裝](<主題知識/操作手冊/Claude 安裝與更新.md#install>) · [更新](<主題知識/操作手冊/Claude 安裝與更新.md#update>) · [移除／反安裝](<主題知識/操作手冊/Claude 安裝與更新.md#uninstall>)。
+
 ## 本機輔助目錄
 
 以下目錄按需使用，均由 `.gitignore` 排除，包含其所有內容。
