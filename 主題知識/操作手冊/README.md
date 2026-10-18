@@ -10,6 +10,7 @@
 | [Codex 詳細教學與排錯（1.5 版留存）](<Codex 安裝與更新（1.5 詳細版）.md>) | 原詳細內容留存，需要深入排錯時再查閱。 | 2026-10-15 |
 | [Claude 安裝、更新與移除](<Claude 安裝與更新.md>) | 1.0 版，Windows、macOS 桌面版及 Claude Code CLI 的必要步驟，含 PATH 排錯。 | 2026-10-15 |
 | [Git CLI 安裝、更新與移除](<Git CLI 安裝、更新與移除.md>) | 1.0 版，Windows、macOS 的安裝、更新與移除，含首次設定、安裝來源與 PATH 排錯。 | 2026-10-15 |
+| [GitHub CLI 安裝、更新與移除](<GitHub CLI 安裝、更新與移除.md>) | 1.0 版，Windows、macOS 的安裝、更新與移除，含登入、登出、授權撤銷與來源辨識。 | 2026-10-15 |
 
 ## Codex 手冊章節
 
@@ -36,6 +37,15 @@
 4. [移除／反安裝](<Git CLI 安裝、更新與移除.md#uninstall>)
 5. [卡住時才看](<Git CLI 安裝、更新與移除.md#help>)
 6. [官方來源與驗證範圍](<Git CLI 安裝、更新與移除.md#sources>)
+
+## GitHub CLI 手冊章節
+
+1. [使用前確認](<GitHub CLI 安裝、更新與移除.md#requirements>)
+2. [安裝與登入](<GitHub CLI 安裝、更新與移除.md#install>)
+3. [更新](<GitHub CLI 安裝、更新與移除.md#update>)
+4. [移除／反安裝](<GitHub CLI 安裝、更新與移除.md#uninstall>)
+5. [卡住時才看](<GitHub CLI 安裝、更新與移除.md#help>)
+6. [官方來源與驗證範圍](<GitHub CLI 安裝、更新與移除.md#sources>)
 
 新增手冊時以具體內容命名，並在本頁補上連結。
 
